@@ -156,7 +156,7 @@ func ignoreExcludeExtension(path string, excludeExtensions map[string]bool) bool
 		return true
 	}
 	basename := filepath.Base(path)
-	for extension, _ := range excludeExtensions {
+	for extension := range excludeExtensions {
 		compile := regexp.MustCompile(extension)
 		if compile.MatchString(basename) {
 			return true

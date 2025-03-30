@@ -15,7 +15,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -44,37 +43,6 @@ var licensePatterns = map[LicenseType][]string{
 	LGPL:    {"GNU LESSER GENERAL PUBLIC LICENSE"},
 	Mozilla: {"Mozilla Public License"},
 	BSD:     {"BSD License", "Redistribution and use in source and binary forms"},
-}
-
-// getLicenseHeaderTemplate returns the license header template for the specified license type
-func getLicenseHeaderTemplate(licenseType LicenseType, year, owner string) string {
-	switch licenseType {
-	case Apache2:
-		return fmt.Sprintf(`// Copyright %s %s
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-`, year, owner)
-	case MIT:
-		return fmt.Sprintf(`// MIT License
-//
-// Copyright (c) %s %s
-//
-// Permission is hereby granted, free of charge...
-`, year, owner)
-	// 可以添加其他协议的模板
-	default:
-		return ""
-	}
 }
 
 // detectLicenseType detects the type of license in the project
