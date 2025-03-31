@@ -30,7 +30,7 @@ var rootCmd = &cobra.Command{
 }
 
 func main() {
-	rootCmd.AddCommand(blankLineCommand(), licenseCommand())
+	rootCmd.AddCommand(blankLineCommand(), licenseCommand(), signCommitCommand())
 	if err := rootCmd.Execute(); err != nil {
 		slog.Error("lintool execute failed", "reason", err)
 		os.Exit(1)
