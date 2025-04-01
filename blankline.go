@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -50,7 +51,7 @@ func blankLineCommand() *cobra.Command {
 		},
 	}
 	cmd.Flags().StringP("directory", "d", ".", "directory to check")
-	cmd.Flags().StringSliceP("exclude", "e", []string{}, "directories or files to exclude (comma-separated)")
+	cmd.Flags().StringSliceP("exclude", "e", []string{"^\\..*", "pb.go$", "gen.go$"}, "directories or files to exclude (comma-separated)")
 	return cmd
 }
 
@@ -83,6 +84,15 @@ func checkBlankLine(directory string, exclude []string) error {
 					return filepath.SkipDir
 				}
 				return nil
+			}
+			for _, rule := range exclude {
+				compile := regexp.MustCompile(rule)
+				if compile.MatchString(current) {
+					if info.IsDir() {
+						return filepath.SkipDir
+					}
+					return nil
+				}
 			}
 			current = filepath.Dir(current)
 		}

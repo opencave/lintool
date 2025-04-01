@@ -26,7 +26,8 @@ import (
 )
 
 var (
-	excludeSourceCodeExtensions = []string{".mod", ".sum", ".md", ".gitignore", "Dockerfile.*", "Makefile.*"}
+	excludeSourceCodeExtensions = []string{"^\\..*", ".mod", ".sum", ".md"} // ignore dotfile, project configuration file
+	excludeFiles                = []string{"^\\..*", "Dockerfile.*", "Makefile.*"}
 )
 
 func licenseCommand() *cobra.Command {
@@ -57,7 +58,7 @@ func licenseCommand() *cobra.Command {
 		},
 	}
 	cmd.Flags().StringP("directory", "d", ".", "directory to check")
-	cmd.Flags().StringSliceP("exclude", "e", []string{}, "directories or files to exclude (comma-separated)")
+	cmd.Flags().StringSliceP("exclude", "e", excludeFiles, "directories or files to exclude (comma-separated)")
 	cmd.Flags().StringP("license", "l", "", "license file to use, if no license file is found and this flag is not set, process will be skipped, support [Apache-2.0, MIT, GPL-2.0, GPL-3.0, LGPL, MPL, BSD]")
 	cmd.Flags().StringSliceP("exclude-extensions", "x", excludeSourceCodeExtensions, "exclude file extension to check, if file no extension will be skipped (comma-separated)")
 	return cmd
@@ -109,6 +110,15 @@ func checkLicenseHeader(directory, license string, exclude, excludeExtensions []
 					return filepath.SkipDir
 				}
 				return nil
+			}
+			for _, rule := range exclude {
+				compile := regexp.MustCompile(rule)
+				if compile.MatchString(current) {
+					if info.IsDir() {
+						return filepath.SkipDir
+					}
+					return nil
+				}
 			}
 			current = filepath.Dir(current)
 		}
