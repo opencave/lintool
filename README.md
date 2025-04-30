@@ -2,20 +2,20 @@
 
 ![License](https://img.shields.io/badge/license-Apache2.0-green)
 ![Language](https://img.shields.io/badge/Language-Go-blue.svg)
-[![version](https://img.shields.io/github/v/tag/openholes/bencode?label=release&color=blue)](https://github.com/openholes/bencode/releases)
-[![Go report](https://goreportcard.com/badge/github.com/openholes/bencode)](https://goreportcard.com/report/github.com/openholes/bencode)
-[![Go Reference](https://pkg.go.dev/badge/github.com/openholes/bencode.svg)](https://pkg.go.dev/github.com/openholes/bencode)
+[![version](https://img.shields.io/github/v/tag/opencave/bencode?label=release&color=blue)](https://github.com/opencave/bencode/releases)
+[![Go report](https://goreportcard.com/badge/github.com/opencave/bencode)](https://goreportcard.com/report/github.com/opencave/bencode)
+[![Go Reference](https://pkg.go.dev/badge/github.com/opencave/bencode.svg)](https://pkg.go.dev/github.com/opencave/bencode)
 
 `lintool` is a lint tool for project source code.
 
-## About openHoles
+## About opencave
 
-openHoles is an open source organization focusing on peer-to-peer solutions, find more information [here](https://github.com/openholes/openholes)
+opencave is an open source organization focusing on peer-to-peer solutions, find more information [here](https://github.com/opencave)
 
 ## Install
 
 ```bash
-go install github.com/openholes/lintool@latest
+go install github.com/opencave/lintool@latest
 ```
 
 ## Usage
@@ -104,4 +104,4 @@ exit status 1
 
 ## License
 
-openHoles is licensed under the Apache License 2.0. Refer to [LICENSE](https://github.com/openholes/bencode/blob/main/LICENSE) for more details.
+opencave is licensed under the Apache License 2.0. Refer to [LICENSE](https://github.com/opencave/bencode/blob/main/LICENSE) for more details.

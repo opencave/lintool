@@ -1,4 +1,4 @@
-module github.com/openholes/lintool
+module github.com/opencave/lintool
 
 go 1.23.0
 
