@@ -2,9 +2,9 @@
 
 ![License](https://img.shields.io/badge/license-Apache2.0-green)
 ![Language](https://img.shields.io/badge/Language-Go-blue.svg)
-[![version](https://img.shields.io/github/v/tag/opencave/bencode?label=release&color=blue)](https://github.com/opencave/bencode/releases)
-[![Go report](https://goreportcard.com/badge/github.com/opencave/bencode)](https://goreportcard.com/report/github.com/opencave/bencode)
-[![Go Reference](https://pkg.go.dev/badge/github.com/opencave/bencode.svg)](https://pkg.go.dev/github.com/opencave/bencode)
+[![version](https://img.shields.io/github/v/tag/opencave/lintool?label=release&color=blue)](https://github.com/opencave/lintool/releases)
+[![Go report](https://goreportcard.com/badge/github.com/opencave/lintool)](https://goreportcard.com/report/github.com/opencave/lintool)
+[![Go Reference](https://pkg.go.dev/badge/github.com/opencave/lintool.svg)](https://pkg.go.dev/github.com/opencave/lintool)
 
 `lintool` is a lint tool for project source code.
 
@@ -104,4 +104,4 @@ exit status 1
 
 ## License
 
-opencave is licensed under the Apache License 2.0. Refer to [LICENSE](https://github.com/opencave/bencode/blob/main/LICENSE) for more details.
+opencave is licensed under the Apache License 2.0. Refer to [LICENSE](https://github.com/opencave/lintool/blob/main/LICENSE) for more details.
